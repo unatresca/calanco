@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prova widget Inline · Scidoo</title>
+  <link rel="stylesheet" href="banco.css">
+</head>
+<body>
+  <header class="barra">
+    <strong>Calanco · prove Scidoo</strong>
+    <a href="index.html">Indice</a>
+    <a href="float.html">Float</a>
+    <a href="inline.html" aria-current="page">Inline</a>
+    <a href="diretto.html">Link diretto</a>
+  </header>
+
+  <main>
+    <h2>Widget nel contenitore <code>#contenitore</code></h2>
+    <div id="contenitore"></div>
+    <p class="help">Se svuoti <code>data-container</code>, il widget si monta nel genitore dello script, cioè il riquadro qui sotto.</p>
+    <div id="punto-script" class="card"></div>
+
+    <div class="banco" style="margin-top:1rem">
+      <details class="pannello" open>
+        <summary>Parametri del widget Inline</summary>
+        <form id="parametri"></form>
+      </details>
+
+      <div class="card">
+        <p id="stato" class="stato">Caricamento di jQuery…</p>
+        <h3>Snippet equivalente</h3>
+        <pre id="snippet"></pre>
+        <button type="button" id="copia">Copia</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="banco.js"></script>
+  <script>avvia('inline');</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prova widget Float · Scidoo</title>
+  <link rel="stylesheet" href="banco.css">
+</head>
+<body>
+  <header class="barra">
+    <strong>Calanco · prove Scidoo</strong>
+    <a href="index.html">Indice</a>
+    <a href="float.html" aria-current="page">Float</a>
+    <a href="inline.html">Inline</a>
+    <a href="diretto.html">Link diretto</a>
+  </header>
+
+  <main>
+    <div class="banco">
+      <details class="pannello" open>
+        <summary>Parametri del widget Float</summary>
+        <form id="parametri"></form>
+      </details>
+
+      <div class="card">
+        <p id="stato" class="stato">Caricamento di jQuery…</p>
+        <h3>Snippet equivalente</h3>
+        <pre id="snippet"></pre>
+        <button type="button" id="copia">Copia</button>
+        <h3>Pulsanti di prova</h3>
+        <p>Scrivi uno di questi id in <code>data-pulsante-mobile</code> o <code>data-pulsante-desktop</code>.</p>
+        <div class="azioni">
+          <button type="button" id="pulsante_mobile_s">pulsante_mobile_s</button>
+          <button type="button" id="pulsante_desktop_s">pulsante_desktop_s</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="contenuto">
+      <h2>Contenuto finto per provare lo scroll</h2>
+      <p>Su desktop, oltre i 300 px di scroll il Float nasconde il calendario e mostra un richiamo compatto. Sotto i 993 px di larghezza si comporta da mobile: calendario nascosto e pulsante "Prenota ora", oppure il tuo pulsante se imposti <code>data-pulsante-mobile</code>.</p>
+      <div id="riempitivo"></div>
+    </div>
+    <div id="punto-script"></div>
+  </main>
+
+  <script src="banco.js"></script>
+  <script>
+    document.getElementById('riempitivo').innerHTML =
+      Array.from({ length: 12 }, (_, i) => `<h2>Sezione ${i + 1}</h2><p>Piazzole, bungalow, servizi, come arrivare. Testo segnaposto per dare altezza alla pagina.</p>`).join('');
+    avvia('float');
+  </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prova link diretto · Scidoo</title>
+  <link rel="stylesheet" href="banco.css">
+</head>
+<body>
+  <header class="barra">
+    <strong>Calanco · prove Scidoo</strong>
+    <a href="index.html">Indice</a>
+    <a href="float.html">Float</a>
+    <a href="inline.html">Inline</a>
+    <a href="diretto.html" aria-current="page">Link diretto</a>
+  </header>
+
+  <main>
+    <h2>Form nostro → booking engine Scidoo</h2>
+    <p class="help">Nessuno script Scidoo e nessun jQuery: il form costruisce un link e apre il booking engine in una nuova scheda. I parametri vengono dal codice di Scidoo e non sono documentati.</p>
+
+    <div class="banco">
+      <form id="ricerca" class="card">
+        <div class="campo">
+          <label class="nome" for="checkin">Arrivo</label>
+          <input type="date" id="checkin" name="checkin" required>
+        </div>
+        <div class="campo">
+          <label class="nome" for="checkout">Partenza</label>
+          <p class="help">Prova del 22/10/2026: il nuovo booking engine applica l'arrivo ma riporta sempre la partenza a 1 notte.</p>
+          <input type="date" id="checkout" name="checkout" required>
+        </div>
+        <div class="campo">
+          <label class="nome" for="adults">Adulti</label>
+          <input type="text" inputmode="numeric" id="adults" name="adults" value="2">
+        </div>
+        <div class="campo">
+          <label class="nome" for="childrenAges">Età dei bambini</label>
+          <input type="text" id="childrenAges" name="childrenAges" placeholder="es. 5,9">
+          <p class="help">Separate da virgola. Vuoto = nessun bambino.</p>
+        </div>
+        <div class="campo">
+          <label class="nome" for="lang">Lingua</label>
+          <select id="lang" name="lang">
+            <option value="it">Italiano</option>
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+            <option value="nl">Nederlands</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label class="nome" for="sectorId">sectorId <span class="tag extra">opzionale</span></label>
+          <input type="text" id="sectorId" name="sectorId">
+          <p class="help">Settore da preselezionare. Oggi la struttura non ha settori configurati.</p>
+        </div>
+        <div class="campo">
+          <label class="nome" for="offerId">offerId <span class="tag extra">opzionale</span></label>
+          <input type="text" id="offerId" name="offerId">
+          <p class="help">Apre direttamente un pacchetto o un'offerta.</p>
+        </div>
+        <div class="campo">
+          <label class="check"><input type="checkbox" id="resetPassword"> aggiungi <code>reset-password</code></label>
+          <p class="help">Apre la finestra "Password dimenticata", solo se il login ospiti è attivo per la struttura.</p>
+        </div>
+        <div class="azioni">
+          <button type="submit">Apri nuovo booking engine</button>
+          <button type="button" id="vecchio">Apri preventivov2 (vecchio)</button>
+        </div>
+      </form>
+
+      <div class="card">
+        <h3>Nuovo booking engine</h3>
+        <pre id="link-nuovo" class="link"></pre>
+        <h3>preventivov2 (vecchio, quello dei widget)</h3>
+        <pre id="link-vecchio" class="link"></pre>
+        <p class="help">Il vecchio usa codici lingua numerici, data di arrivo più numero di notti, e non ha un parametro noto per i bambini.</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const CODICE = '64ffcd90-cbb5-4c37-8818-4994ade2c748';
+    const LINGUA_NUMERICA = { it: '0', en: '1', fr: '3', de: '4', nl: '8' };
+    const form = document.getElementById('ricerca');
+    const $ = id => document.getElementById(id);
+
+    function isoTra(giorni) {
+      const d = new Date();
+      d.setDate(d.getDate() + giorni);
+      return d.toISOString().slice(0, 10);
+    }
+    $('checkin').value = isoTra(30);
+    $('checkout').value = isoTra(37);
+
+    function linkNuovo() {
+      const p = new URLSearchParams({ 'shop-id': CODICE, lang: $('lang').value, checkin: $('checkin').value, checkout: $('checkout').value, adults: $('adults').value.trim() });
+      const eta = $('childrenAges').value.replace(/\s/g, '');
+      if (eta) p.set('childrenAges', eta);
+      for (const k of ['sectorId', 'offerId']) if ($(k).value.trim()) p.set(k, $(k).value.trim());
+      let url = 'https://booking.scidoo.com/?' + p.toString();
+      if ($('resetPassword').checked) url += '&reset-password';
+      return url;
+    }
+
+    function linkVecchio() {
+      const notti = Math.max(1, Math.round((new Date($('checkout').value) - new Date($('checkin').value)) / 86400000));
+      const p = new URLSearchParams({ cod: CODICE, lang: LINGUA_NUMERICA[$('lang').value], dataarr: $('checkin').value, notti: String(notti), adult: $('adults').value.trim() });
+      return 'https://www.scidoo.com/preventivov2/?' + p.toString();
+    }
+
+    function aggiorna() {
+      $('link-nuovo').textContent = linkNuovo();
+      $('link-vecchio').textContent = linkVecchio();
+    }
+    form.addEventListener('input', aggiorna);
+    aggiorna();
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      window.open(linkNuovo(), '_blank', 'noopener');
+    });
+    $('vecchio').addEventListener('click', () => window.open(linkVecchio(), '_blank', 'noopener'));
+  </script>
+</body>
+</html>

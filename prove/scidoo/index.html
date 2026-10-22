@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prove Scidoo · Calanco</title>
+  <link rel="stylesheet" href="banco.css">
+</head>
+<body>
+  <header class="barra">
+    <strong>Calanco · prove Scidoo</strong>
+    <a href="index.html" aria-current="page">Indice</a>
+    <a href="float.html">Float</a>
+    <a href="inline.html">Inline</a>
+    <a href="diretto.html">Link diretto</a>
+  </header>
+  <main class="contenuto">
+    <h1>Prove dei widget Scidoo</h1>
+    <ul>
+      <li><a href="float.html">Widget Float</a>: riquadro sovrapposto alla pagina, con pulsante "Prenota ora" su mobile.</li>
+      <li><a href="inline.html">Widget Inline</a>: form inserito in un elemento della pagina.</li>
+      <li><a href="diretto.html">Link diretto</a>: form nostro, senza script Scidoo, che apre il nuovo booking engine (o il vecchio) con date e ospiti già compilati.</li>
+    </ul>
+    <p>Ogni pagina ha un pannello con tutti gli attributi. "Applica e ricarica" salva i valori nell'hash dell'URL e ricarica la pagina, perché gli script Scidoo leggono gli attributi una sola volta. L'URL con l'hash si può condividere per riprodurre una configurazione.</p>
+    <p>Etichette nel pannello: <span class="tag extra">fuori dal pannello</span> = letto dagli script ma non offerto dal pannello Scidoo; <span class="tag avviso">non letto dagli script</span> = offerto dal pannello ma ignorato dagli script attuali.</p>
+    <h2>Booking engine diretto</h2>
+    <ul>
+      <li><a href="https://www.scidoo.com/preventivov2/?cod=64ffcd90-cbb5-4c37-8818-4994ade2c748" target="_blank" rel="noopener">preventivov2</a> (attuale)</li>
+      <li><a href="https://booking.scidoo.com/?shop-id=64ffcd90-cbb5-4c37-8818-4994ade2c748" target="_blank" rel="noopener">booking.scidoo.com</a> (nuovo booking engine, in test)</li>
+    </ul>
+  </main>
+</body>
+</html>

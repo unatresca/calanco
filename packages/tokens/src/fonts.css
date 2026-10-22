@@ -1,0 +1,99 @@
+/*
+ * Font del design system.
+ *
+ * Testo: Apfel Grotezk (Collletttivo, OFL).
+ * Display (titoli, menu, logotipo): MF Odd Mono nei siti attuali. È commerciale e
+ * non può stare nel repository, quindi viene cercato solo in fonts/local/.
+ * Le alternative OFL si attivano con l'attributo data-display-font su un antenato
+ * (di solito <html>): odd-mono | major-mono | syne-mono | necto-mono.
+ */
+
+@font-face {
+  font-family: "Apfel Grotezk";
+  src: url("../fonts/apfel-grotezk/ApfelGrotezk-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MF Odd Mono";
+  src:
+    local("MF Odd Mono"),
+    local("MFOddMono-Regular"),
+    url("../fonts/local/MFOddMono-Regular.woff2") format("woff2"),
+    url("../fonts/local/MFOddMono-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Major Mono Display";
+  src: url("../fonts/major-mono-display/MajorMonoDisplay-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Syne Mono";
+  src: url("../fonts/syne-mono/SyneMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Necto Mono";
+  src: url("../fonts/necto-mono/NectoMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root,
+[data-display-font="odd-mono"] {
+  --font-display: "MF Odd Mono", "Major Mono Display", ui-monospace, monospace;
+}
+
+[data-display-font="major-mono"] {
+  --font-display: "Major Mono Display", ui-monospace, monospace;
+}
+
+[data-display-font="syne-mono"] {
+  --font-display: "Syne Mono", ui-monospace, monospace;
+}
+
+[data-display-font="necto-mono"] {
+  --font-display: "Necto Mono", ui-monospace, monospace;
+}
+
+/*
+ * Font delle proposte "display dinamico" (Storybook → Proposte).
+ * Fungal: Velvetyne, licenza Bitstream Vera/DejaVu. Bitcount e Recursive: Google Fonts, OFL.
+ */
+
+@font-face {
+  font-family: "Fungal";
+  src: url("../fonts/fungal/FungalVF.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bitcount";
+  src: url("../fonts/bitcount/Bitcount.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Recursive";
+  src: url("../fonts/recursive/Recursive.woff2") format("woff2");
+  font-weight: 300 1000;
+  font-style: oblique 0deg 15deg;
+  font-display: swap;
+}

@@ -1,2 +1,9 @@
 .playwright-mcp/
 .DS_Store
+.confronto-font/
+node_modules/
+storybook-static/
+_site/
+# MF Odd Mono è commerciale (Metis Foundry): il file resta solo in locale.
+packages/tokens/fonts/local/*
+!packages/tokens/fonts/local/README.md

@@ -1,0 +1,22 @@
+@import "@calanco/tokens/fonts.css";
+@import "@calanco/tokens/tokens.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-page);
+  color: var(--color-ink);
+  font-family: var(--font-text);
+  font-size: var(--font-size-text);
+  line-height: var(--line-height-text);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}

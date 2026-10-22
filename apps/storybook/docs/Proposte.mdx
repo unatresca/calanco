@@ -1,0 +1,52 @@
+import { Meta, Unstyled } from "@storybook/addon-docs/blocks";
+import { BreathingText, LivingWord, ShuffledWord } from "@calanco/ui";
+
+<Meta title="Proposte/Introduzione" />
+
+export const Barra = ({ children, nota }) => (
+  <Unstyled>
+    <div style={{ background: "#000", color: "var(--color-accent)", padding: "20px 18px", marginBottom: 10, overflow: "clip" }}>
+      <div style={{ fontFamily: "system-ui", fontSize: 12, color: "#aaa", marginBottom: 6 }}>{nota}</div>
+      <div style={{ fontSize: 80, lineHeight: 1 }}>{children}</div>
+    </div>
+  </Unstyled>
+);
+
+# Display dinamico: tre proposte
+
+Nei siti attuali "TRESCA" cambia forma a ogni occorrenza grazie alle varianti di MF Odd Mono, un font commerciale (vedi [Tipografia](?path=/docs/fondamenta-tipografia--docs)). Queste proposte ottengono una parola che non è mai uguale a sé stessa con font a licenza libera e un po' di codice.
+
+<Barra nota="1 · Variazione per lettera — Bitcount">
+  <ShuffledWord text="TRESCA" fontFamily="Bitcount" seed={7} features={[[], ["ss02"], ["ss05"], ["ss02", "ss05"]]} axes={{ ELSH: [0, 100], ELXP: [0, 100], wght: [300, 800] }} />
+</Barra>
+<Barra nota="2 · Font variabile animato — Fungal">
+  <BreathingText text="TRESCA" fontFamily="Fungal" axes={{ grow: [0, 1000], THCK: [300, 700] }} duration={3} stagger={0.2} />
+</Barra>
+<Barra nota="3 · Parola viva — reazione-diffusione su Recursive 800">
+  <LivingWord text="TRESCA" fontFamily="Recursive" fontWeight={800} fontSize={130} cellsPerEm={180} pattern="trattini" seed={1} />
+</Barra>
+
+## Confronto
+
+| | 1 · Variazione per lettera | 2 · Font variabile animato | 3 · Parola viva |
+|---|---|---|---|
+| **Cosa varia** | ogni lettera ha varianti e valori d'asse propri, fissi | gli assi del font si muovono di continuo | una trama organica cresce dentro le lettere |
+| **Quando varia** | a ogni build o a ogni pagina (seme) | nel tempo, con lo scorrimento della pagina o seguendo il puntatore | in ciclo: cresce, resta, sparisce, rinasce; reagisce a puntatore, tocco e scorrimento |
+| **È testo vero** | sì | sì | no: canvas con il testo nascosto accanto |
+| **JavaScript nel browser** | no | no per tempo e scorrimento; poche righe per il puntatore | sì, solo per quella parola |
+| **Peso** | il font (34–270 kB) | il font | il font + ~6 kB di codice; usa la CPU finché è visibile |
+| **Movimento ridotto** | non serve | resta ferma | mostra il testo statico |
+| **Dove usarlo** | logotipo, titoli, menu | logotipo, titoli brevi | logotipo e hero, una parola per pagina |
+
+Nella proposta 3 la parola si legge quando la trama la copre tutta in modo uniforme, come un retino: per questo si semina in tutta la lettera e si risemina dove resta vuota. Trattini, puntini e macchie danno l'aspetto più vicino a Morphogen; più il tratto del font è spesso, più macchie ci entrano e meglio si legge (Recursive a peso 800 funziona meglio di Apfel Grotezk, che è sottile). In modalità *ciclo* la parola cresce, resta, le macchie si restringono fino a sparire e rinasce da un seme nuovo. Mouse, tocco e trascinamento seminano nuova crescita dove passano; lo scorrimento della pagina semina crescita sparsa.
+
+Le tre proposte si combinano: per esempio la 1 per titoli e menu, la 3 solo per "TRESCA" nella home.
+
+## Font usati
+
+- **Bitcount** (Petr van Blokland, OFL): font "a punti" con assi sulla forma (`ELSH`) e sull'espansione (`ELXP`) dei punti e varianti per A, C, E, R, S, T.
+- **Fungal** (Velvetyne, licenza Bitstream Vera): asse `grow` che fa germogliare le lettere, `THCK` per lo spessore.
+- **Recursive** (Arrow Type, OFL): assi `MONO` (da proporzionale a monospaziato) e `CASL` (da rigido a disinvolto).
+- **Apfel Grotezk**, già usato per il testo, come stampo della parola viva.
+
+La simulazione della proposta 3 è una reazione-diffusione Gray-Scott scritta per questo progetto; l'idea viene da [Morphogen](https://text-tool.voltagg.uk/) di Ernesto Voltaggio, di cui non riusiamo il codice.

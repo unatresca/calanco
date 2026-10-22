@@ -1,0 +1,49 @@
+.tr-menu {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: var(--gutter);
+  border: 0;
+  background: var(--color-bar);
+  color: var(--color-on-bar);
+}
+
+.tr-menu--inline {
+  position: static;
+  min-height: 32rem;
+}
+
+.tr-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tr-menu a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.tr-menu a:hover .tr-display,
+.tr-menu a[aria-current="page"] .tr-display {
+  text-decoration: underline;
+  text-decoration-thickness: 0.05em;
+  text-underline-offset: 0.1em;
+}
+
+.tr-menu__close {
+  position: absolute;
+  top: var(--gutter);
+  right: var(--gutter);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-size: calc(var(--bar-height) * 0.6);
+  line-height: 0;
+  cursor: pointer;
+}

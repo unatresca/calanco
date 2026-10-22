@@ -1,0 +1,26 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
+
+<Meta title="Fondamenta/Colori" />
+
+# Colori
+
+Ogni sito ha un colore d'accento, usato come sfondo delle pagine e come colore del testo sulle barre nere. Il resto è nero.
+
+<ColorPalette>
+  <ColorItem title="Giallo Tresca" subtitle="--color-yellow-tresca" colors={{ "#FFED00": "#ffed00" }} />
+  <ColorItem title="Lime Campeggia" subtitle="--color-lime-campeggia" colors={{ "#C5E702": "#c5e702" }} />
+  <ColorItem title="Nero" subtitle="--color-black" colors={{ "#000000": "#000000" }} />
+  <ColorItem title="Grigio chiaro" subtitle="--color-grey-100" colors={{ "#EFEFEF": "#efefef" }} />
+</ColorPalette>
+
+## Ruoli
+
+I componenti usano i ruoli, non i colori di base. Il tema (`data-theme="tresca"` o `"campeggia"`) cambia solo `--color-accent`.
+
+| Ruolo | Valore | Uso |
+|---|---|---|
+| `--color-accent` | giallo o lime | colore del sito |
+| `--color-page` | `--color-accent` | sfondo delle pagine |
+| `--color-ink` | nero | testo sulle pagine |
+| `--color-bar` | nero | barra superiore, menu, fascia finale |
+| `--color-on-bar` | `--color-accent` | testo sulle barre |

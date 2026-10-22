@@ -1,0 +1,16 @@
+.tr-service-list ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tr-service-list li {
+  padding-left: 0.75em;
+  text-indent: -0.75em;
+}
+
+.tr-service-list li::before {
+  content: "– ";
+  font-family: var(--font-text);
+  font-size: var(--font-size-lead);
+}

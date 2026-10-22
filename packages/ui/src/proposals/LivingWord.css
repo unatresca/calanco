@@ -1,0 +1,28 @@
+.tr-living {
+  display: inline-block;
+  position: relative;
+  max-width: 100%;
+  line-height: 1;
+}
+
+.tr-living__canvas {
+  /* Il dito può ancora scorrere la pagina in verticale; tocchi e trascinamenti orizzontali restano alla parola. */
+  touch-action: pan-y;
+  display: none;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Finché la simulazione non parte si vede il testo; poi il testo resta solo per i lettori di schermo. */
+.tr-living--running .tr-living__canvas {
+  display: block;
+}
+
+.tr-living--running .tr-living__text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

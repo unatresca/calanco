@@ -16,6 +16,8 @@ Codice struttura (`data-codice` / `shop-id`): `64ffcd90-cbb5-4c37-8818-4994ade2c
 
 Sono le cinque lingue attive per la struttura. Scidoo ne supporta altre (spagnolo `2`, russo `5`, …), che però richiedono le traduzioni dei servizi in Scidoo.
 
+I testi che la struttura definisce vanno tradotti nel pannello, lingua per lingua. Tra questi ci sono le etichette dei tipi di ospite (Adulto, Bambino, Neonato, Animale), in *Impostazioni Generali → Fasce Età Clienti*, con il selettore "Lingua" in alto. Nei widget le righe degli adulti e degli animali usano queste etichette, e senza traduzione restano in italiano ("Adulto" nel Float, "Adulti" e "Animale" nell'Inline, anche in tedesco). La riga dei bambini invece usa un testo fisso di Scidoo già tradotto ("Kinder"). Il nuovo booking engine usa etichette proprie, tutte tradotte.
+
 ## Widget
 
 Tre script da incorporare nel sito, tutti su `www.scidoo.com/preventivo_picker/`:

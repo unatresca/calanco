@@ -1,0 +1,13 @@
+{
+  "name": "calanco",
+  "private": true,
+  "packageManager": "pnpm@12.11.2",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "storybook": "pnpm --filter @calanco/storybook dev",
+    "build-storybook": "pnpm --filter @calanco/storybook build",
+    "typecheck": "pnpm -r typecheck"
+  }
+}

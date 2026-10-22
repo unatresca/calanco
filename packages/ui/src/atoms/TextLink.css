@@ -1,0 +1,15 @@
+.tr-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.12em;
+}
+
+.tr-link:hover {
+  text-decoration-thickness: 0.12em;
+}
+
+.tr-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}

@@ -1,0 +1,20 @@
+.tr-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8) var(--gutter);
+  padding: var(--space-4) var(--gutter);
+}
+
+.tr-split__col > * + * {
+  margin-top: 1em;
+}
+
+@media (max-width: 48rem) {
+  .tr-split {
+    grid-template-columns: 1fr;
+  }
+
+  .tr-split--end-first .tr-split__col:last-child {
+    order: -1;
+  }
+}

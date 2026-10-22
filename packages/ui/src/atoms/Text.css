@@ -1,0 +1,21 @@
+.tr-text {
+  margin: 0;
+  font-family: var(--font-text);
+  line-height: var(--line-height-text);
+}
+
+.tr-text + .tr-text {
+  margin-top: 1em;
+}
+
+.tr-text--lead {
+  font-size: var(--font-size-lead);
+}
+
+.tr-text--text {
+  font-size: var(--font-size-text);
+}
+
+.tr-text--small {
+  font-size: var(--font-size-small);
+}

@@ -1,0 +1,7 @@
+.tr-legal-footer {
+  padding: var(--space-4) var(--gutter) var(--space-6);
+}
+
+.tr-legal-footer .tr-text + .tr-text {
+  margin-top: 0;
+}

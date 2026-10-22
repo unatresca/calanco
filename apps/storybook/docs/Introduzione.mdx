@@ -1,0 +1,25 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Fondamenta/Introduzione" />
+
+# Design system Tresca
+
+Componenti e token condivisi dai siti di Una Tresca e della Campeggia, e in futuro dall'area interna. Il linguaggio visivo viene dai siti attuali ([unatresca.it](https://www.unatresca.it/), [La Campeggia](https://www.unatresca.it/lacampeggia/)), progettati da Roberta Donatini.
+
+## Struttura
+
+I componenti seguono l'atomic design:
+
+- **Atomi**: testo display, testo, link, icone, immagini.
+- **Molecole**: logotipo, link di lingua, elenco dei servizi, blocco contatti.
+- **Organismi**: barra superiore, menu a tutto schermo, hero, sezioni, blocchi a due colonne, fascia finale, dati legali.
+- **Pagine**: le pagine attuali ricomposte con i componenti.
+
+Sono componenti React con CSS semplice. Nei siti Astro diventano HTML statico senza JavaScript; il menu si apre con l'attributo HTML `popover`.
+
+## Barra degli strumenti
+
+- **Tema**: Tresca (giallo) o Campeggia (lime).
+- **Font titoli**: MF Odd Mono, se installato in locale, oppure una delle alternative con licenza libera. Vedi [Tipografia](?path=/docs/fondamenta-tipografia--docs).
+
+Le foto sono segnaposto: quelle dei siti sono di Roberta Donatini e non stanno nel repository.

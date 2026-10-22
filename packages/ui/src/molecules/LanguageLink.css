@@ -1,0 +1,15 @@
+.tr-language-link a {
+  color: inherit;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.tr-language-link a:hover {
+  text-decoration: underline;
+}
+
+.tr-language-link .tr-icon {
+  width: 0.7em;
+  height: 0.7em;
+  vertical-align: 0.05em;
+}

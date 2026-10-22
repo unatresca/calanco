@@ -1,0 +1,26 @@
+.tr-hero {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background: var(--color-bar);
+}
+
+.tr-hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tr-hero__text {
+  position: relative;
+  max-width: 18em;
+  margin: 0;
+  padding: var(--gutter);
+  color: var(--color-accent);
+  font-family: var(--font-text);
+  font-size: var(--font-size-display);
+  font-weight: 400;
+  line-height: 0.95;
+}

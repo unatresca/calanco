@@ -1,0 +1,12 @@
+.tr-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  background: var(--color-page);
+  color: var(--color-ink);
+  font-family: var(--font-text);
+}
+
+.tr-page__main {
+  flex: 1;
+}

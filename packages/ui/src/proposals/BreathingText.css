@@ -1,0 +1,75 @@
+/* Proprietà registrate: solo così il browser sa interpolarle durante l'animazione. */
+@property --tr-axis-1 {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --tr-axis-2 {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --tr-axis-3 {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+@keyframes tr-breathe {
+  from {
+    --tr-axis-1: var(--tr-axis-1-from, 0);
+    --tr-axis-2: var(--tr-axis-2-from, 0);
+    --tr-axis-3: var(--tr-axis-3-from, 0);
+  }
+  to {
+    --tr-axis-1: var(--tr-axis-1-to, 0);
+    --tr-axis-2: var(--tr-axis-2-to, 0);
+    --tr-axis-3: var(--tr-axis-3-to, 0);
+  }
+}
+
+.tr-breathe {
+  line-height: 1;
+  white-space: pre;
+}
+
+.tr-breathe__letter {
+  --tr-axis-1: var(--tr-axis-1-from, 0);
+  --tr-axis-2: var(--tr-axis-2-from, 0);
+  --tr-axis-3: var(--tr-axis-3-from, 0);
+}
+
+/* Tempo: respiro continuo; il ritardo negativo fa partire ogni lettera già a metà del suo respiro. */
+.tr-breathe--tempo .tr-breathe__letter {
+  animation: tr-breathe var(--tr-breathe-duration) ease-in-out infinite alternate;
+  animation-delay: calc(var(--i) * var(--tr-breathe-stagger) * -1s);
+}
+
+/*
+ * Scorrimento: l'animazione è legata alla posizione della parola nella finestra.
+ * Ogni lettera ha un tratto di percorso leggermente spostato, così si muovono in sequenza.
+ */
+@supports (animation-timeline: view()) {
+  .tr-breathe--scorrimento .tr-breathe__letter {
+    animation: tr-breathe linear both;
+    animation-timeline: view();
+    animation-range: cover calc(10% + var(--i) * var(--tr-breathe-stagger) * 40%) cover calc(60% + var(--i) * var(--tr-breathe-stagger) * 40%);
+  }
+}
+
+/* Puntatore: i valori arrivano da JavaScript; la transizione li rende morbidi. */
+.tr-breathe--puntatore .tr-breathe__letter {
+  transition:
+    --tr-axis-1 0.25s ease-out,
+    --tr-axis-2 0.25s ease-out,
+    --tr-axis-3 0.25s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tr-breathe__letter {
+    animation: none !important;
+    transition: none !important;
+  }
+}

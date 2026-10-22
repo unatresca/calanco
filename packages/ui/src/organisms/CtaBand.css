@@ -1,0 +1,28 @@
+.tr-cta-band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-16);
+  padding: var(--space-2) var(--gutter);
+  background: var(--color-bar);
+  color: var(--color-on-bar);
+}
+
+.tr-cta-band__link {
+  color: inherit;
+  text-decoration: none;
+  min-width: 0;
+}
+
+.tr-cta-band__link:hover .tr-display {
+  text-decoration: underline;
+  text-decoration-thickness: 0.05em;
+}
+
+.tr-cta-band__top {
+  flex: none;
+  color: inherit;
+  font-size: calc(var(--bar-height) * 0.5);
+  line-height: 0;
+}

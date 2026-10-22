@@ -174,6 +174,10 @@ function avvia(widget) {
     location.reload();
   });
 
+  // Ogni modifica ricarica subito il widget: select e caselle al cambio,
+  // i campi di testo quando si esce dal campo o si preme Invio.
+  form.addEventListener('change', () => form.requestSubmit());
+
   document.getElementById('reset').addEventListener('click', () => {
     history.replaceState(null, '', location.pathname);
     location.reload();

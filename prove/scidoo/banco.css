@@ -49,6 +49,7 @@ details.pannello summary { cursor: pointer; font-weight: 600; }
 .tag.extra { background: var(--extra-bg); color: var(--extra-fg); }
 
 .azioni { display: flex; gap: .5rem; padding-top: .8rem; flex-wrap: wrap; }
+#parametri .azioni { position: sticky; bottom: 0; background: var(--card); padding-bottom: .8rem; border-top: 1px solid var(--line); }
 button { font: inherit; padding: .45rem .9rem; border-radius: 6px; border: 1px solid var(--accent); background: var(--accent); color: #fff; cursor: pointer; }
 button[type=button] { background: transparent; color: var(--accent); }
 
